@@ -10,8 +10,8 @@ function Navbar() {
       </div>
       {/* right */}
       <div className='flex w-2/5 justify-around'>
-        <p className="text-black text-3xl pt-2">About</p>
-        <p className="text-black text-3xl pt-2">FAQ</p>
+        <p className="text-black text-3xl pt-2 txt">About</p>
+        <p className="text-black text-3xl pt-2 txt">FAQ</p>
       </div>
 
     </div>

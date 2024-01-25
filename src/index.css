@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg{
+    background-image: url("../src/assets/bg1.png");
+    background-position: center;
+}
+
+@font-face {
+    font-family: "Light";   /*Can be any text*/
+    src: local("ProductSans"),
+      url("../src/fonts/ProductSans-Regular.ttf") format("truetype");
+  }
+  
+
+.txt{
+    font-family: ProductSans;
+}  

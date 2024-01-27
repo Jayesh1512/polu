@@ -1,48 +1,187 @@
-import React, { useState } from 'react';
-import dextertitle from '../assets/dextertitle.svg';
-import regbutton from '../assets/regbutton.svg';
-import dexterlog from '../assets/dexterlog.svg';
-import gdsclogo from '../assets/gdsclogo.svg';
-import backgroundImage from '../assets/bg1.svg';
+// import React, { useState } from 'react';
+// import dextertitle from '../assets/dextertitle.svg';
+// import regbutton from '../assets/regbutton.svg';
+// import dexterlog from '../assets/dexterlog.svg';
+// import gdsclogo from '../assets/gdsclogo.svg';
+// import backgroundImage from '../assets/bg1.svg';
 
-function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+// function Home() {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+//   const toggleMenu = () => {
+//     setIsMenuOpen(!isMenuOpen);
+//   };
+
+//   return (
+//     <div className='bg-cover bg-center h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
+//       <div className="bg-transparent backdrop-blur-lg text-white p-4">
+//         <div className="flex justify-between items-center">
+//           <img src={gdsclogo} alt="" className='w-1/2 lg:w-auto'/>
+//           <button
+//             className="md:hidden block text-white focus:outline-none"
+//             onClick={toggleMenu}
+//           >
+//             Menu
+//           </button>
+//           <ul className={`md:flex md:space-x-4 mt-4 md:mr-10 text-black text-xl ${isMenuOpen ? "block" : "hidden"}`}>
+//             <li>About</li>
+//             <li>FAQ</li>
+//           </ul>
+//         </div>
+//       </div>
+
+//       <div className='flex flex-col justify-center items-center'>
+//         <img src={dextertitle} alt="Dexter Title" className='lg:w-[30vw] w-[80vw] lg:py-2 pt-28 mt-10'/>
+//         <div className='flex justify-center p-2'>
+//           <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2nx0bCKlK12hJF5GKsCf-kZ36h52X3S9m1rARjoWZVJwxDw/formrestricted?pli=1" target="_blank" rel="noopener noreferrer">
+//             <img src={regbutton} alt="Registration Button" className='lg:w-[15vw] w-[50vw] lg:py-5'/>
+//           </a>
+//         </div>
+//         <div className='flex justify-center'>
+//           <img src={dexterlog} alt="Dexter Logo" className='lg:w-[25vw] w-[80vw] lg:py-3 py-8'/>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+import React, { useState, useEffect } from "react";
+import logo from "../assets/gdsclogo.svg";
+import dextertitle from "../assets/dextertitle.svg";
+import regbutton from "../assets/regbutton.svg";
+import dexterlog from "../assets/dexterlog.svg";
+import backgroundImage from "../assets/bg1.svg";
+import { Link } from "react-scroll";
+
+const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
+  return (
+    <header className="w-full bg-white md-bg-transparent fixed top-0 left-0 right-0">
+      <nav
+        className={`py-4 lg:px-14 px-4 ${
+          isSticky
+            ? "sticky top-0 left-0 right-0 border-b bg-white shadow-md"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="flex justify-between item-center text-base gap-8">
+          <a href="#" className="text-2xl font-semibold flex items-center space-x-3">
+            <img src={logo} alt="" className="w-80 initial-block items-center" />
+          </a>
+          <ul className="md:flex space-x-12 hidden items-center font-semibold">
+            {navItems.map(({ link, path }) => (
+              <Link
+                to={path}
+                spy={true}
+                smooth={true}
+                offset={-100}
+                key={path}
+                className="block text-base text-emerald-900 hover:text-emerald-500 "
+              >
+                {link}
+              </Link>
+            ))}
+          </ul>
+
+          <div className="lg:hidden flex items-center">
+            <button onClick={toggleMenu}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 text-emerald-900"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  className="text-emerald-900"
+                  d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 9a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM4 14a1 1 0 100 2h12a1 1 0 100-2H4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          className={`space-y-4 px-4 mt-16 py-7 bg-primary ${
+            isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
+          }`}
+        >
+          {navItems.map(({ link, path }) => (
+            <Link
+              to={path}
+              spy={true}
+              smooth={true}
+              offset={-100}
+              key={path}
+              className="block text-base text-white hover:text-emerald-900"
+            >
+              {link}
+            </Link>
+          ))}
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+const Home = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setMenuOpen(!isMenuOpen);
   };
 
-  return (
-    <div className='bg-cover bg-center h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="bg-transparent backdrop-blur-lg text-white p-4">
-        <div className="flex justify-between items-center">
-          <img src={gdsclogo} alt="" className='w-1/2 lg:w-auto'/>
-          <button
-            className="md:hidden block text-white focus:outline-none"
-            onClick={toggleMenu}
-          >
-            Menu
-          </button>
-          <ul className={`md:flex md:space-x-4 mt-4 md:mr-10 text-black text-xl ${isMenuOpen ? "block" : "hidden"}`}>
-            <li>About</li>
-            <li>FAQ</li>
-          </ul>
-        </div>
-      </div>
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
 
-      <div className='flex flex-col justify-center items-center'>
-        <img src={dextertitle} alt="Dexter Title" className='lg:w-[30vw] w-[80vw] lg:py-2 pt-28 mt-10'/>
-        <div className='flex justify-center p-2'>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf2nx0bCKlK12hJF5GKsCf-kZ36h52X3S9m1rARjoWZVJwxDw/formrestricted?pli=1" target="_blank" rel="noopener noreferrer">
-            <img src={regbutton} alt="Registration Button" className='lg:w-[15vw] w-[50vw] lg:py-5'/>
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navItems = [
+    {
+      id: 1,
+      link: "About",
+      path: "about",
+    },
+    {
+      id: 2,
+      link: "FAQ",
+      path: "faq",
+    },
+  ];
+
+  return (
+    <div className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <Navbar isSticky={isSticky} toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} navItems={navItems} />
+      <div className="flex flex-col justify-center items-center mt-16">
+        <img src={dextertitle} alt="Dexter Title" className="lg:w-[30vw] w-[80vw] lg:py-2 pt-28 mt-10" />
+        <div className="flex justify-center p-2">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSf2nx0bCKlK12hJF5GKsCf-kZ36h52X3S9m1rARjoWZVJwxDw/formrestricted?pli=1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={regbutton} alt="Registration Button" className="lg:w-[15vw] w-[50vw] lg:py-5" />
           </a>
         </div>
-        <div className='flex justify-center'>
-          <img src={dexterlog} alt="Dexter Logo" className='lg:w-[25vw] w-[80vw] lg:py-3 py-8'/>
+        <div className="flex justify-center">
+          <img src={dexterlog} alt="Dexter Logo" className="lg:w-[25vw] w-[80vw] lg:py-3 py-8" />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Home;
+

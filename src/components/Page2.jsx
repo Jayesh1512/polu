@@ -74,7 +74,7 @@ const Page2 = () => {
   }, []);
 
   return (
-    <div className="bg-cover bg-center p-8" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="bg-cover bg-center p-8 overflow-x-hidden" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="md:h-screen flex items-center justify-center">
         <div className="flex flex-wrap justify-center gap-8 mt-6">
           <motion.div

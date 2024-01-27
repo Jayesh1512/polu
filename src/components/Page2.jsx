@@ -16,11 +16,11 @@ function Page2() {
       <div className=" md:h-screen flex items-center justify-center ">
       <div className="flex flex-wrap justify-center w-full gap-8 mt-6">
 
-<Card image1={what} title="ROUND 1" image2={f1} contents={`Aptitude Based Round`}/>
+<Card image1={what} title="ROUND 1" image2={f1} contents={`Marked Aptitude Challenge `}/>
 
-<Card image1={when} title="ROUND 2" image2={f2} contents={`Promt Engineering Round`}/>
+<Card image1={when} title="ROUND 2" image2={f2} contents={`Dexter's Prompt Mishaps`}/>
 
-<Card image1={how} title="ROUND 3" image2={f3} contents={`Coding Relay Round`}/>
+<Card image1={how} title="ROUND 3" image2={f3} contents={`Markdark's Evil Incorporated Code Relay`}/>
 
         </div> 
       </div>

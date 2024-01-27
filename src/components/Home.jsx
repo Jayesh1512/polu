@@ -92,8 +92,8 @@ const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const controlsBullet = useAnimation();
-  const [bulletIndex, setBulletIndex] = useState(0);
+  // const controlsBullet = useAnimation();
+  // const [bulletIndex, setBulletIndex] = useState(0);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -102,9 +102,9 @@ const Home = () => {
   const controlsTitle = useAnimation();
   const controlsLogo = useAnimation();
   const controlsButton = useAnimation();
-  const controlsSpace = useAnimation();
+  // const controlsSpace = useAnimation();
 
-  const bulletImages = [bullet1, bullet2, bullet3, bullet4];
+  // const bulletImages = [bullet1, bullet2, bullet3, bullet4];
 
   useEffect(() => {
     controlsTitle.start("visible");
@@ -119,36 +119,36 @@ const Home = () => {
         await controlsButton.start({ scale: 1, transition: { duration: 0.5 } });
       }
     };
-    const spaceAnimation = async () => {
-      while (true) {
-        await controlsSpace.start({
-          y: [0, -20, 0, 20, 0], // Define a sequence of motion (up, down, up, down, ...)
-          transition: { duration: 2, repeat: Infinity },
-        });
-      }
-    };
-    const bulletAnimation = async () => {
-      while (true) {
-        for (let i = 0; i < bulletImages.length; i++) {
-          setBulletIndex(i);
-          await controlsBullet.start({
-            opacity: 1,
-            transition: { duration: 0.005 },
-          });
-          await controlsBullet.start({
-            opacity: 0.5,
-            transition: { duration: 0.005 },
-          });
-          await controlsBullet.start({
-            opacity: 0,
-            transition: { duration: 0.005 },
-          });
-        }
-      }
-    };
+    // const spaceAnimation = async () => {
+    //   while (true) {
+    //     await controlsSpace.start({
+    //       y: [0, -20, 0, 20, 0], // Define a sequence of motion (up, down, up, down, ...)
+    //       transition: { duration: 2, repeat: Infinity },
+    //     });
+    //   }
+    // };
+    // const bulletAnimation = async () => {
+    //   while (true) {
+    //     for (let i = 0; i < bulletImages.length; i++) {
+    //       setBulletIndex(i);
+    //       await controlsBullet.start({
+    //         opacity: 1,
+    //         transition: { duration: 0.005 },
+    //       });
+    //       await controlsBullet.start({
+    //         opacity: 0.5,
+    //         transition: { duration: 0.005 },
+    //       });
+    //       await controlsBullet.start({
+    //         opacity: 0,
+    //         transition: { duration: 0.005 },
+    //       });
+    //     }
+    //   }
+    // };
     spaceAnimation();
     buttonAnimation();
-    bulletAnimation();
+    // bulletAnimation();
     return () => {
       controlsButton.stop();
       controlsBullet.stop();
@@ -157,9 +157,10 @@ const Home = () => {
     controlsTitle,
     controlsLogo,
     controlsButton,
-    controlsSpace,
-    controlsBullet,
   ]);
+  //   controlsSpace,
+  //   controlsBullet,
+  // ]);
 
   const navItems = [
     {

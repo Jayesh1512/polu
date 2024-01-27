@@ -16,10 +16,10 @@ function Card({ image1, title ,image2 ,contents,contents2}) {
         <img src={image2} alt="" className="" />
         {/* right */}
         <div className="flex flex-col">
-        <p className="text-white text-x2 ">
+        <p className="text-white text-x1 font-bold">
         {contents}
         </p>
-        <p className="text-white text-xl ">
+        <p className="text-white text-x2">
         {contents2}
         </p>
         </div>

@@ -8,7 +8,7 @@ function Card({ image1, title ,image2 ,contents}) {
       {/* top */}
       <div className="flex gap-1 md:flex-row md:gap-0 flex-col">
         <img src={image1} alt="" className="" />
-        <h1 className=" mt-24 text-[33px] font-extrabold  text-cardTitle ">{title}</h1>
+        <h1 className=" mt-20 text-[30px] font-extrabold  text-cardTitle ">{title}</h1>
       </div>
       {/* bottom */}
       <div className="flex bg-card w-full h-full px-3 py-7 justify-evenly pr- pr-7">

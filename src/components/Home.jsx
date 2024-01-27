@@ -195,13 +195,13 @@ const Home = () => {
           animate={controlsSpace}
         />
 
-{/*       <motion.img
+      <motion.img
         src={bulletImages[bulletIndex]}
         alt={`Bullet ${bulletIndex + 1}`}
         className="absolute z-10 left-1/4 top-1/2 transform -translate-y-1/2"
         initial="hidden"
         animate={controlsBullet}
-      /> */}
+      />
       </div> */}
 
       {/* Display the bullet image based on the current index */}

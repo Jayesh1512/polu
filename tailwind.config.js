@@ -9,6 +9,7 @@ export default {
       backgroundColor: {
         'card': 'rgba(68, 149, 170, 1)',
         'primary' : 'rgba(68, 149, 170, 1)',
+        'footer' : "#224B55"
       },
       colors:{
         'cardTitle': 'rgba(5, 61, 76, 1)',

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .bg{
     background-image: url("../src/assets/bg1.png");
     background-position: center;
@@ -13,6 +15,18 @@
       url("../src/fonts/ProductSans-Regular.ttf") format("truetype");
   }
   
+
+.lgbtq{
+    background: linear-gradient(to right, #98cf65ff, 
+    #32b8bfff,#09aee0ff, #09aee0ff); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text;
+}  
+
+
+.txt{
+    font-family: 'Open Sans', sans-serif;
+}
 
 
 

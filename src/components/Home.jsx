@@ -193,7 +193,6 @@ const Home = () => {
           initial="hidden"
           animate={controlsSpace}
         />
-      </div>
 
       <motion.img
         src={bulletImages[bulletIndex]}
@@ -202,6 +201,7 @@ const Home = () => {
         initial="hidden"
         animate={controlsBullet}
       />
+      </div>
 
       {/* Display the bullet image based on the current index */}
 

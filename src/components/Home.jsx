@@ -185,7 +185,7 @@ const Home = () => {
         isMenuOpen={isMenuOpen}
         navItems={navItems}
       />
-      <div className="hidden lg:block">
+{/*       <div className="hidden lg:block">
         <motion.img
           src={spaceImage}
           alt="Space"
@@ -201,7 +201,7 @@ const Home = () => {
         initial="hidden"
         animate={controlsBullet}
       /> */}
-      </div>
+      </div> */}
 
       {/* Display the bullet image based on the current index */}
 

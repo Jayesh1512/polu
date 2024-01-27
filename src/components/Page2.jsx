@@ -104,7 +104,7 @@ const Page2 = () => {
               image1={when}
               title="ROUND 2"
               image2={f2}
-              contents={`Dexter's Prompt Mishaps`}
+              contents={`Prompt Engineering`}
               contents2={`Participants are supposed to give prompts to generate an image which should be similar to one provided to them`}
             />
           </motion.div>
@@ -120,8 +120,8 @@ const Page2 = () => {
               image1={how}
               title="ROUND 3"
               image2={f3}
-              contents={`Markdark's Evil Incorporated Code Relay`}
-              contents2={`Teams are tasked with coding Dexter's latest invention, one person codes at a time`}
+              contents={`Code Relay`}
+              contents2={`Teams are tasked with coding Dexter's latest invention, one person codes at a time for a specific duration then switch.`}
             />
           </motion.div>
         </div>

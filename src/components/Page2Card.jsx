@@ -11,7 +11,7 @@ function Card({ image1, title ,image2 ,contents,contents2}) {
         <h1 className=" mt-12 text-[24px] font-extrabold  text-cardTitle ">{title}</h1>
       </div>
       {/* bottom */}
-      <div className="flex bg-card w-full h-full px-3 py-7 justify-evenly pr- pr-7">
+      <div className="flex md:flex-col bg-card w-full h-full px-3 py-7 justify-evenly pr- pr-7">
         {/* left */}
         <img src={image2} alt="" className="" />
         {/* right */}

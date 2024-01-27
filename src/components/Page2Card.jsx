@@ -6,7 +6,7 @@ function Card({ image1, title ,image2 ,contents}) {
   return (
     <div className="flex flex-col space-y-4 bg-white max-w-sm py-10 px-8">
       {/* top */}
-      <div className="flex gap-1  ">
+      <div className="flex gap-1 flex-col ">
         <img src={image1} alt="" className="" />
         <h1 className=" mt-24 text-[33px] font-extrabold  text-cardTitle ">{title}</h1>
       </div>

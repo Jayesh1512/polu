@@ -4,7 +4,7 @@ import About from "../assets/about.svg";
 
 const Page3 = () => {
   return (
-    <div className="bg-cover bg-center h-screen w-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="bg-cover bg-center h-screen w-screen p-8" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="flex justify-center items-center">
       <div className="bg-white w-full md:w-3/4 h-[80vh] lg:w-1/2 xl:w-2/3  flex flex-col md:flex-row p-4">
         <img src={About} alt="" className="w-full md:w-1/2 object-cover rounded-md mb-4 md:mb-0" />

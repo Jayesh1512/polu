@@ -12,8 +12,8 @@ const Page3 = () => {
           <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">About The Event</p>
           <p className="text-lg md:text-xl lg:text-2xl p-4">
             Dexter’s Laboratory Adventure is an engaging coding event featuring Mandark’s 
-          Aptitude Challenge and Dexter’s Prompt Mishaps in Round 1. Teams earn points
-           based on aptitude and prompt accuracy. Round 2, Code Relay, involves coding Dexter’s 
+          Aptitude Challenge and Dexter’s Prompt Mishaps in <br/>Round 1. Teams earn points
+           based on aptitude and prompt accuracy.<br /> Round 2, Code Relay, involves coding Dexter’s 
            invention collaboratively. Top teams auction points for exclusive rewards in Crazy Invention Auction
           </p>
         </div>

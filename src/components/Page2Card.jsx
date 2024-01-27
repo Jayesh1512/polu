@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-function Card({ image1, title ,image2 ,contents}) {
+function Card({ image1, title ,image2 ,contents,contents2}) {
   return (
     <div className="flex flex-col space-y-4 bg-white max-w-sm py-10 px-8">
       {/* top */}
@@ -15,9 +15,14 @@ function Card({ image1, title ,image2 ,contents}) {
         {/* left */}
         <img src={image2} alt="" className="" />
         {/* right */}
-        <p className="text-white text-xl ">
+        <div className="flex flex-col">
+        <p className="text-white text-x2 ">
         {contents}
         </p>
+        <p className="text-white text-xl ">
+        {contents2}
+        </p>
+        </div>
 
       </div>
     </div>

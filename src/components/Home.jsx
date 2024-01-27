@@ -3,9 +3,14 @@ import logo from "../assets/gdsclogo.svg";
 import dextertitle from "../assets/dextertitle.svg";
 import regbutton from "../assets/regbutton.svg";
 import dexterlog from "../assets/dexterlog.svg";
+import spaceImage from "../assets/space.svg";
 import backgroundImage from "../assets/bg1.svg";
 import { Link } from "react-scroll";
 import { motion, useAnimation } from "framer-motion";
+import bullet1 from "../assets/bullet1.svg";
+import bullet2 from "../assets/bullet2.svg";
+import bullet3 from "../assets/bullet3.svg";
+import bullet4 from "../assets/bullet4.svg";
 
 const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
   return (
@@ -87,6 +92,8 @@ const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
 const Home = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const controlsBullet = useAnimation();
+  const [bulletIndex, setBulletIndex] = useState(0);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -95,6 +102,9 @@ const Home = () => {
   const controlsTitle = useAnimation();
   const controlsLogo = useAnimation();
   const controlsButton = useAnimation();
+  const controlsSpace = useAnimation();
+
+  const bulletImages = [bullet1, bullet2, bullet3, bullet4];
 
   useEffect(() => {
     controlsTitle.start("visible");
@@ -109,11 +119,47 @@ const Home = () => {
         await controlsButton.start({ scale: 1, transition: { duration: 0.5 } });
       }
     };
+    const spaceAnimation = async () => {
+      while (true) {
+        await controlsSpace.start({
+          y: [0, -20, 0, 20, 0], // Define a sequence of motion (up, down, up, down, ...)
+          transition: { duration: 2, repeat: Infinity },
+        });
+      }
+    };
+    const bulletAnimation = async () => {
+      while (true) {
+        for (let i = 0; i < bulletImages.length; i++) {
+          setBulletIndex(i);
+          await controlsBullet.start({
+            opacity: 1,
+            transition: { duration: 0.005 },
+          });
+          await controlsBullet.start({
+            opacity: 0.5,
+            transition: { duration: 0.005 },
+          });
+          await controlsBullet.start({
+            opacity: 0,
+            transition: { duration: 0.005 },
+          });
+        }
+      }
+    };
+    spaceAnimation();
     buttonAnimation();
+    bulletAnimation();
     return () => {
       controlsButton.stop();
+      controlsBullet.stop();
     };
-  }, [controlsTitle, controlsLogo, controlsButton]);
+  }, [
+    controlsTitle,
+    controlsLogo,
+    controlsButton,
+    controlsSpace,
+    controlsBullet,
+  ]);
 
   const navItems = [
     {
@@ -130,7 +176,7 @@ const Home = () => {
 
   return (
     <div
-      className="bg-cover bg-center h-screen overflow-x-hidden"
+      className="bg-cover bg-center h-screen overflow-x-hidden relative"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <Navbar
@@ -139,6 +185,26 @@ const Home = () => {
         isMenuOpen={isMenuOpen}
         navItems={navItems}
       />
+      <div className="hidden lg:block">
+        <motion.img
+          src={spaceImage}
+          alt="Space"
+          className="absolute z-10 top-1/3 left-1/5 transform -translate-y-1/2"
+          initial="hidden"
+          animate={controlsSpace}
+        />
+      </div>
+
+      <motion.img
+        src={bulletImages[bulletIndex]}
+        alt={`Bullet ${bulletIndex + 1}`}
+        className="absolute z-10 left-1/4 top-1/2 transform -translate-y-1/2"
+        initial="hidden"
+        animate={controlsBullet}
+      />
+
+      {/* Display the bullet image based on the current index */}
+
       <div className="flex flex-col justify-center items-center mt-16">
         <motion.img
           src={dextertitle}

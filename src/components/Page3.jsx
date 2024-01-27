@@ -11,9 +11,8 @@ const Page3 = () => {
         <div className="flex flex-col justify-center text-center md:w-1/2 md:ml-4">
           <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">About The Event</p>
           <p className="text-lg md:text-xl lg:text-2xl p-4 font-semibold">
-            Get ready for a trip down memory lane with GDSC RCOEM's exciting event, Dexter's Laboratory ⚗️🧪
-            Join us as we relive the laughter and joy of classic cartoons like Shinchan, Doraemon, Tom and Jerry with some additional coding combinations!
-            So what are you waiting for? Bring up your gang and get a chance to win some amazing swags 😉
+            This Polaris season, GDSC RCOEM is organizing an exciting event called Dexter’s Laboratory. 
+            The event comprises of four rounds: Aptitude Test, Paint the picture, Code Relay and Auction round, each with a unique challenge.
           </p>
         </div>
       </div>

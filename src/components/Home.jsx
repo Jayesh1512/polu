@@ -54,11 +54,11 @@ import regbutton from "../assets/regbutton.svg";
 import dexterlog from "../assets/dexterlog.svg";
 import backgroundImage from "../assets/bg1.svg";
 import { Link } from "react-scroll";
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from "framer-motion";
 
 const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
   return (
-    <header className="w-full bg-white md-bg-transparent fixed top-0 left-0 right-0">
+    <header className="w-full bg-white md-bg-transparent fixed top-0 left-0 right-0 z-10">
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky
@@ -67,8 +67,15 @@ const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
         }`}
       >
         <div className="flex justify-between item-center text-base gap-8">
-          <a href="#" className="text-2xl font-semibold flex items-center space-x-3">
-            <img src={logo} alt="" className="w-80 initial-block items-center" />
+          <a
+            href="#"
+            className="text-2xl font-semibold flex items-center space-x-3"
+          >
+            <img
+              src={logo}
+              alt=""
+              className="w-80 initial-block items-center"
+            />
           </a>
           <ul className="md:flex space-x-12 hidden items-center font-semibold">
             {navItems.map(({ link, path }) => (
@@ -136,11 +143,26 @@ const Home = () => {
 
   const controlsTitle = useAnimation();
   const controlsLogo = useAnimation();
+  const controlsButton = useAnimation();
 
   useEffect(() => {
-    controlsTitle.start('visible');
-    controlsLogo.start('visible');
-  }, [controlsTitle, controlsLogo]);
+    controlsTitle.start("visible");
+    controlsLogo.start("visible");
+
+    const buttonAnimation = async () => {
+      while (true) {
+        await controlsButton.start({
+          scale: 1.08,
+          transition: { duration: 0.8 },
+        });
+        await controlsButton.start({ scale: 1, transition: { duration: 0.5 } });
+      }
+    };
+    buttonAnimation();
+    return () => {
+      controlsButton.stop();
+    };
+  }, [controlsTitle, controlsLogo, controlsButton]);
 
   const navItems = [
     {
@@ -156,8 +178,16 @@ const Home = () => {
   ];
 
   return (
-    <div className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <Navbar isSticky={isSticky} toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} navItems={navItems} />
+    <div
+      className="bg-cover bg-center h-screen"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <Navbar
+        isSticky={isSticky}
+        toggleMenu={toggleMenu}
+        isMenuOpen={isMenuOpen}
+        navItems={navItems}
+      />
       <div className="flex flex-col justify-center items-center mt-16">
         <motion.img
           src={dextertitle}
@@ -177,7 +207,13 @@ const Home = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={regbutton} alt="Registration Button" className="lg:w-[15vw] w-[50vw] lg:py-5" />
+            <motion.img
+              src={regbutton}
+              alt="Registration Button"
+              className="lg:w-[15vw] w-[50vw] lg:py-5"
+              initial="hidden"
+              animate={controlsButton}
+            />
           </a>
         </div>
         <div className="flex justify-center">

@@ -14,7 +14,7 @@ import bullet4 from "../assets/bullet4.svg";
 
 const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
   return (
-    <header className="w-full bg-white md-bg-transparent fixed top-0 left-0 right-0 z-10 overflow-x-hidden">
+    <header className="w-full bg-white md-bg-transparent fixed top-0 left-0 right-0 z-10 ">
       <nav
         className={`py-4 lg:px-14 px-4 ${
           isSticky

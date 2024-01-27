@@ -54,6 +54,7 @@ import regbutton from "../assets/regbutton.svg";
 import dexterlog from "../assets/dexterlog.svg";
 import backgroundImage from "../assets/bg1.svg";
 import { Link } from "react-scroll";
+import { motion, useAnimation } from 'framer-motion';
 
 const Navbar = ({ isSticky, toggleMenu, isMenuOpen, navItems }) => {
   return (
@@ -133,20 +134,13 @@ const Home = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
+  const controlsTitle = useAnimation();
+  const controlsLogo = useAnimation();
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  useEffect(() => {
+    controlsTitle.start('visible');
+    controlsLogo.start('visible');
+  }, [controlsTitle, controlsLogo]);
 
   const navItems = [
     {
@@ -165,7 +159,18 @@ const Home = () => {
     <div className="bg-cover bg-center h-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Navbar isSticky={isSticky} toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} navItems={navItems} />
       <div className="flex flex-col justify-center items-center mt-16">
-        <img src={dextertitle} alt="Dexter Title" className="lg:w-[30vw] w-[80vw] lg:py-2 pt-28 mt-10" />
+        <motion.img
+          src={dextertitle}
+          alt="Dexter Title"
+          className="lg:w-[30vw] w-[80vw] lg:py-2 pt-28 mt-6"
+          initial="hidden"
+          animate={controlsTitle}
+          variants={{
+            hidden: { scale: 0.8, opacity: 0 },
+            visible: { scale: 1, opacity: 1 },
+          }}
+          transition={{ duration: 0.5 }}
+        />
         <div className="flex justify-center p-2">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSf2nx0bCKlK12hJF5GKsCf-kZ36h52X3S9m1rARjoWZVJwxDw/formrestricted?pli=1"
@@ -176,7 +181,18 @@ const Home = () => {
           </a>
         </div>
         <div className="flex justify-center">
-          <img src={dexterlog} alt="Dexter Logo" className="lg:w-[25vw] w-[80vw] lg:py-3 py-8" />
+          <motion.img
+            src={dexterlog}
+            alt="Dexter Logo"
+            className="lg:w-[25vw] w-[80vw] lg:py-3 py-8"
+            initial="hidden"
+            animate={controlsLogo}
+            variants={{
+              hidden: { scale: 0.8, opacity: 0 },
+              visible: { scale: 1, opacity: 1 },
+            }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
         </div>
       </div>
     </div>
@@ -184,4 +200,3 @@ const Home = () => {
 };
 
 export default Home;
-

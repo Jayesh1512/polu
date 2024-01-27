@@ -6,7 +6,7 @@ const Page3 = () => {
   return (
     <div className="bg-cover bg-center h-screen md:h-screen w-screen p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="flex justify-center items-center">
-      <div className="bg-white md:h-[120vh] w-full md:w-3/4 h-[80vh] lg:w-1/2 xl:w-2/3  flex flex-col md:flex-row p-4">
+      <div className="bg-white md:h-[120vh] w-full md:w-3/4 lg:w-1/2 xl:w-2/3  flex flex-col md:flex-row p-4">
         <img src={About} alt="" className="w-full md:w-1/2 object-cover rounded-md mb-4 md:mb-0" />
         <div className="flex flex-col justify-center text-center md:w-1/2 md:ml-4">
           <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">About The Event</p>

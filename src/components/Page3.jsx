@@ -1,9 +1,14 @@
 // import React from 'react';
 import backgroundImage from "../assets/bg2.svg";
 import About from "../assets/about.svg";
+import Page4 from "./Page4";
 
 const Page3 = () => {
   return (
+    <>
+    <div className="hidden lg:block">
+    <Page4 />
+    </div>
     <div className="bg-cover bg-center h-[100vh] md:h-[120vh] w-[98.9vw] p-4 overflow-x-hidden" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="flex justify-center items-center overflow-x-hidden">
         <div className="bg-white w-full md:w-3/4 lg:w-1/2 xl:w-2/3  flex flex-col md:flex-row p-4 justify-center items-center">
@@ -18,6 +23,7 @@ const Page3 = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

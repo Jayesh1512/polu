@@ -12,5 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Page3 />
     <Page2 />
     <Footer />
+
   </React.StrictMode>,
 )

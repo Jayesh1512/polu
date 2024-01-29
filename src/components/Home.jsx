@@ -154,7 +154,7 @@ const Home = () => {
         />
         <div className="flex justify-center p-2">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf2nx0bCKlK12hJF5GKsCf-kZ36h52X3S9m1rARjoWZVJwxDw/formrestricted?pli=1"
+            href="https://leaderboard-beta.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
           >

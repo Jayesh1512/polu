@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/gdsclogo.svg";
 import dextertitle from "../assets/dextertitle.svg";
-import regbutton from "../assets/redbutton1.svg";
+import regbutton from "../assets/redbutton2.svg";
 import dexterlog from "../assets/dexterlog.svg";
 import backgroundImage from "../assets/bg1.svg";
 import { Link } from "react-scroll";
@@ -154,7 +154,7 @@ const Home = () => {
         />
         <div className="flex justify-center p-2">
           <a
-            href="https://leaderboard-beta.vercel.app/"
+            href="https://forms.gle/gmUi3YHQU6fBdthw8"
             target="_blank"
             rel="noopener noreferrer"
           >

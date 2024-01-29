@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/gdsclogo.svg";
 import dextertitle from "../assets/dextertitle.svg";
-import regbutton from "../assets/regbutton.svg";
+import regbutton from "../assets/regbutton1.svg";
 import dexterlog from "../assets/dexterlog.svg";
 import backgroundImage from "../assets/bg1.svg";
 import { Link } from "react-scroll";
